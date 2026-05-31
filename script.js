@@ -162,24 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const copyButtons = document.querySelectorAll('.copy-btn');
 
-    copyButtons.forEach(btn => {
-        btn.addEventListener('click', async () => {
-            const parentBox = btn.closest('.terminal-box');
-            const commandText = parentBox.querySelector('.code').innerText;
-
-            try {
-                await navigator.clipboard.writeText(commandText);
-                const originalIcon = btn.innerHTML;
-                
-                btn.innerHTML = `
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>`;
-                
-                setTimeout(() => { btn.innerHTML = originalIcon; }, 2000);
-            } catch (err) {
-                console.error('Ошибка копирования: ', err);
-            }
-        });
-    });
 });
+
+AOS.init({
+    // Необязательные настройки для красоты:
+    offset: 100, // Анимация начнется, когда блок покажется на 120px
+    duration: 1000, // Скорость анимации в миллисекундах (0.8 секунды)
+  });

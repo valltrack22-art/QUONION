@@ -337,6 +337,7 @@
         }
 
         .download {
+            margin-top: 10px;
             background-color: var(--card-bg);
             border: 1px solid var(--accent-border);
             padding: 24px; border-radius: 4px;
